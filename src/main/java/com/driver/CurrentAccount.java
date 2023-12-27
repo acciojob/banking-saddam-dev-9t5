@@ -10,15 +10,20 @@ public class CurrentAccount extends BankAccount{
         if(balance < currentMinBalance) {
             throw new InsufficientBalanceException("Insufficient Balance");
         }
-        tradeLicenseId = this.validateLicenseId(tradeLicenseId);
         this.tradeLicenseId = tradeLicenseId;
+        validateLicenseId();
     }
 
-    public String validateLicenseId(String tradeLicenseId) throws Exception {
+    public String getTradeLicenseId() {
+        return tradeLicenseId;
+    }
+
+    public String validateLicenseId() throws Exception {
         // A trade license Id is said to be valid if no two consecutive characters are same
         // If the license Id is valid, do nothing
         // If the characters of the license Id can be rearranged to create any valid license Id
         // If it is not possible, throw "Valid License can not be generated" Exception
+        String tradeLicenseId = this.getTradeLicenseId();
         char[] charArray = tradeLicenseId.toCharArray();
         for (int i = 0; i < charArray.length-1; i++) {
             if(charArray[i] == charArray[i+1]) {

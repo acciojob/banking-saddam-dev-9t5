@@ -12,6 +12,15 @@ public class SavingsAccount extends BankAccount{
         this.rate = rate;
         this.maxWithdrawalLimit = maxWithdrawalLimit;
     }
+
+    public double getRate() {
+        return rate;
+    }
+
+    public double getMaxWithdrawalLimit() {
+        return this.maxWithdrawalLimit;
+    }
+
     public void withdraw(double amount) throws Exception {
         // Might throw the following errors:
         // 1. "Maximum Withdraw Limit Exceed" : If the amount exceeds maximum withdrawal limit
